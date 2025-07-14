@@ -2,9 +2,7 @@ Este es un proyecto web que muestra un portafolio personal de fotografía, ideal
 
 
 
-https://github.com/user-attachments/assets/a3c7f7df-fec3-4957-b6ae-bfdae31d1076
-
-
+https://github.com/user-attachments/assets/fd531dbd-794d-4ec6-aef8-a28d6e810f5b
 
 
 El sitio presenta una galería de imágenes, secciones sobre mí, servicios y un formulario de contacto. Cada fotografía está pensada para resaltar detalles y emociones capturadas en el momento.
@@ -22,4 +20,4 @@ Clona este repositorio
 
 bash
 git clone https://github.com/tu-usuario/tu-repo.git
-Abre index.html en tu navegador (si es solo frontend estático)
+Abre index.html en tu navegador (localhost)
