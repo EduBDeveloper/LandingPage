@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generar Orden de Compra</title>
+</head>
+
+<body>
+    <h1>Generar Orden de Compra</h1>
+    <form action="orden_compra.php" method="POST">
+        <!-- Datos de la orden de compra -->
+        <label for="type">Tipo:</label>
+        <input type="text" name="type" required><br>
+
+        <label for="number">Número:</label>
+        <input type="text" name="number" required><br>
+
+        <label for="status">Estado:</label>
+        <input type="text" name="status" required><br>
+
+        <label for="currency">Moneda:</label>
+        <input type="text" name="currency" required><br>
+
+        <label for="issue_date">Fecha de emisión:</label>
+        <input type="date" name="issue_date" required><br>
+
+        <label for="delivery_date">Fecha de entrega:</label>
+        <input type="date" name="delivery_date" required><br>
+
+        <label for="provider_id">Proveedor:</label>
+        <input type="number" name="provider_id" required><br>
+
+        <label for="payment_days">Días de pago:</label>
+        <input type="number" name="payment_days" required><br>
+
+        <label for="account_number">Número de cuenta:</label>
+        <input type="text" name="account_number" required><br>
+
+        <label for="quotation">Cotización:</label>
+        <input type="text" name="quotation" required><br>
+
+        <label for="requester">Solicitante:</label>
+        <input type="text" name="requester" required><br>
+
+        <label for="approver">Aprobador:</label>
+        <input type="text" name="approver" required><br>
+
+        <label for="observation">Observación:</label>
+        <textarea name="observation" required></textarea><br>
+
+        <!-- Detalles del presupuesto -->
+        <h3>Detalles de los productos del presupuesto</h3>
+        <table id="tabla_detalle_presupuesto">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($detallesPresupuesto as $producto): ?>
+                <tr>
+                    <td>
+                        <?= $producto['producto'] ?>
+                    </td>
+                    <td>
+                        <input type="number" name="cantidades[]" value="<?= $producto['cantidad'] ?>" required>
+                    </td>
+                    <td>
+                        <input type="number" name="precios[]" value="<?= $producto['precio_unitario'] ?>" required>
+                    </td>
+                    <input type="hidden" name="producto_ids[]" value="<?= $producto['id_producto'] ?>">
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <input type="hidden" name="presupuesto_id" value="<?= $presupuesto_id ?>">
+
+        <input type="submit" value="Generar Orden de Compra">
+    </form>
+</body>
+
+</html>
